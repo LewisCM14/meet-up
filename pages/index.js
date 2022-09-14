@@ -17,10 +17,22 @@ const DUMMY_MEETUPS = [
     }
 ]
 
-const HomePage = () => {
+const HomePage = (props) => {
+
     return (
-        <MeetUpList meetups={DUMMY_MEETUPS}/>
+        <MeetUpList meetups={props.meetups}/>
     )
 };
+
+// getStaticProps only available in the pages directory, executes code during build process
+// an object always needs to be returned,
+export async function getStaticProps() {
+    return {
+        props: {
+            meetups: DUMMY_MEETUPS  // passes the meetups from the 'backend' via props.meetup
+        },
+        revalidate: 3600,  // provided page ahs incoming requests, re-builds the page every 10 seconds, ensure data remains up to date
+    };
+}
 
 export default HomePage;
