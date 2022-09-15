@@ -4,12 +4,12 @@ import Card from "../ui/Card";
 import classes from "./MeetupItem.module.css";
 
 function MeetupItem(props) {
-  const router = useRouter(); // collect the router object
+  const router = useRouter();
 
   // constructs a URL with the meetup id for redirect
-  const showDetailsHandler = () => {
+  function showDetailsHandler() {
     router.push("/" + props.id);
-  };
+  }
 
   return (
     <li className={classes.item}>
