@@ -1,5 +1,4 @@
 import MeetupDetail from "../../components/meetups/MeetupDetail";
-import { Fragment } from "react";
 
 const MeetupDetails = () => {
   // passes the required props to the MeetupDetails component
